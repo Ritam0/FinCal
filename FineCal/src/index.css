@@ -1,0 +1,120 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-accent-50: #eef2ff;
+  --color-accent-100: #e0e7ff;
+  --color-accent-200: #c7d2fe;
+  --color-accent-300: #a5b4fc;
+  --color-accent-400: #818cf8;
+  --color-accent-500: #6366f1;
+  --color-accent-600: #4f46e5;
+  --color-accent-700: #4338ca;
+  --color-accent-800: #3730a3;
+  --color-accent-900: #312e81;
+}
+
+html {
+  color-scheme: light dark;
+}
+
+body {
+  @apply text-slate-900 dark:text-slate-100;
+  background-color: #f8fafc;
+  background-image:
+    radial-gradient(at 15% 0%, rgba(129, 140, 248, 0.16) 0, transparent 55%),
+    radial-gradient(at 85% 15%, rgba(99, 102, 241, 0.10) 0, transparent 50%),
+    radial-gradient(at 50% 100%, rgba(16, 185, 129, 0.06) 0, transparent 45%);
+  background-attachment: fixed;
+}
+
+.dark body {
+  background-color: #05070f;
+  background-image:
+    radial-gradient(at 15% 0%, rgba(99, 102, 241, 0.20) 0, transparent 55%),
+    radial-gradient(at 85% 15%, rgba(129, 140, 248, 0.12) 0, transparent 50%),
+    radial-gradient(at 50% 100%, rgba(16, 185, 129, 0.07) 0, transparent 45%);
+}
+
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide number input spinners for a cleaner fintech look */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+/* Custom range slider styling */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 6px;
+  border-radius: 9999px;
+  background: linear-gradient(
+    to right,
+    var(--color-accent-500) 0%,
+    var(--color-accent-500) var(--range-progress, 50%),
+    rgb(226 232 240) var(--range-progress, 50%),
+    rgb(226 232 240) 100%
+  );
+  outline: none;
+}
+.dark input[type="range"] {
+  background: linear-gradient(
+    to right,
+    var(--color-accent-500) 0%,
+    var(--color-accent-500) var(--range-progress, 50%),
+    rgb(51 65 85) var(--range-progress, 50%),
+    rgb(51 65 85) 100%
+  );
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 26px;
+  height: 26px;
+  border-radius: 9999px;
+  background: var(--color-accent-600);
+  border: 4px solid white;
+  box-shadow: 0 2px 6px rgba(79, 70, 229, 0.4);
+  cursor: pointer;
+  transition: transform 0.1s ease-out, box-shadow 0.1s ease-out;
+}
+.dark input[type="range"]::-webkit-slider-thumb {
+  border: 4px solid rgb(15 23 42);
+}
+input[type="range"]:active::-webkit-slider-thumb {
+  transform: scale(1.2);
+  box-shadow: 0 0 0 10px rgba(79, 70, 229, 0.18), 0 2px 6px rgba(79, 70, 229, 0.4);
+}
+.dark input[type="range"]:active::-webkit-slider-thumb {
+  box-shadow: 0 0 0 10px rgba(129, 140, 248, 0.22), 0 2px 6px rgba(79, 70, 229, 0.4);
+}
+input[type="range"]::-moz-range-thumb {
+  width: 26px;
+  height: 26px;
+  border-radius: 9999px;
+  background: var(--color-accent-600);
+  border: 4px solid white;
+  box-shadow: 0 2px 6px rgba(79, 70, 229, 0.4);
+  cursor: pointer;
+  transition: transform 0.1s ease-out, box-shadow 0.1s ease-out;
+}
+.dark input[type="range"]::-moz-range-thumb {
+  border: 4px solid rgb(15 23 42);
+}
+input[type="range"]:active::-moz-range-thumb {
+  transform: scale(1.2);
+  box-shadow: 0 0 0 10px rgba(79, 70, 229, 0.18), 0 2px 6px rgba(79, 70, 229, 0.4);
+}
