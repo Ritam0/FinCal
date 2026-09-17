@@ -1,0 +1,14 @@
+services:
+  web:
+    build: ./FineCal
+    ports:
+      - 5173:5173
+  api:
+    build: ./finCal-server
+    ports:
+      - 3001:3001
+    environment:
+      CONNECTION_STRING: mongodb+srv://ritammajumder2025_db_user:pJZOHXfvwf13y7qT@cluster0.j3eha1w.mongodb.net/?appName=Cluster0
+      JWT_SECRET: my-secret-key
+
+
